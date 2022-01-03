@@ -30,7 +30,7 @@ pladmin wc2db [options]
 > - --merge: Merge the object that you are exporting with the local file. 
 ```sh
 # usage
-pladmin wc2db [options]
+pladmin db2wc [options]
 ```
 
 `compile`: Look for invalid objects and try to compile it.
