@@ -987,7 +987,12 @@ class Database:
             )
         )
         
-        cursor.execute(sql)
+        try:
+            cursor.execute(sql)
+        except Exception as e:
+            print(e)
+            pass
+        
         cursor.close()
 
         if localClose:
