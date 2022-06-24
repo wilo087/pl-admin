@@ -334,7 +334,7 @@ def migrate(dry_run, force, name=None, types=None):
 
                 if item['status'] == 'FAIL':
                     failedGroups.append(groupID)
-            
+
                 # Update status on the
                 db.insertOrUpdateMigration(item, db=dbm)
             

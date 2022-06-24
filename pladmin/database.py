@@ -1006,7 +1006,7 @@ class Database:
         
         output = []
         status = 'OK'
-    
+
         for line in open(script_path, 'r'):
             if line.strip() == "/":
                 statement = "".join(statementParts).strip()
@@ -1058,11 +1058,10 @@ class Database:
             db.close()
 
     def insertOrUpdateMigration(self, data, db):
-        if self.getMigration(scriptName=data['name'], where=" status = 'FAIL' or status = 'HOLD' "):
+        if self.getMigration(scriptName=data['name'], where=" (status = 'FAIL' or status = 'HOLD') "):
             return self.updateMigration(data, db)
         else:
             return self.insertMigration(data, db)
-         
 
 
     def dbms_output(self, cursor):
@@ -1086,66 +1085,3 @@ class Database:
         dbmsOutPut = ' '.join(output)
         
         return dbmsOutPut
-
-
-    # def createMigration(
-    #     self, scriptName, fullPath, status, typeScript, output, db=None
-    # ):
-
-    #     localClose = False
-
-    #     if not db:
-    #         db = self.dbConnect()
-    #         localClose = True
-
-    #     cursor = db.cursor()
-
-    #     migration = self.getScriptByName(scriptName=scriptName)
-
-    #     if not migration:
-
-    #         sql = (
-    #             (
-    #                 """ 
-    #                   INSERT INTO omega.PLADMIN_MIGRATIONS (SCRIPT_NAME, STATUS, FULL_PATH, TYPE_SCRIPT, OUTPUT) 
-    #                   VALUES('%s', '%s', '%s', '%s', '%s')
-                     
-    #                   """
-    #             )
-    #             % (scriptName, status, fullPath, typeScript, output)
-    #         )
-    #         data = cursor.execute(sql)
-
-    #     if localClose:
-    #         db.commit()
-    #         db.close()
-
-    # def getScriptByName(self, scriptName):
-    #     sql = "SELECT * FROM PLADMIN_MIGRATIONS WHERE script_name='%s' " % (scriptName)
-
-    #     data = self.getData(query=sql, fetchOne=True)
-
-    #     return data
-
-    # def getScriptDB(self, status="OK", date=None):
-
-        # if not date:
-        #     date = datetime.now().strftime("%Y%m%d")
-
-        # sql = (
-        #     (
-        #         """ SELECT * FROM %s.PLADMIN_MIGRATIONS 
-        #            WHERE status = '%s'
-        #            AND created_at >= TO_DATE ('%s', 'YYYYMMDD') 
-        #        """
-        #     )
-        #     % (self.user, status, date)
-        # )
-
-        # data = self.getData(query=sql)
-
-        # return data
-
-
-
-
