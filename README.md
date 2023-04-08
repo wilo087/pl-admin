@@ -3,7 +3,8 @@
 
 PL-Amin is a PL/SQL Manager that provides you with an easy way to clone a main schema, compile pl/sql code on realtime, check for database errors, check for differences between repos and databases, and so much more.
 
-This tool was created to deal with database-centered apps, with too much logic on the database side and very little on the code side.
+PL-Admin allows you to version your PL/SQL code from your Oracle database with Git without losing the advantages of programming within the same database.
+It also works perfectly for automated deployments using GitHub, GitLab or the repository of your choice.
 
 ## Requirements
 ```sh
