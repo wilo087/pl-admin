@@ -5,6 +5,10 @@ Esta herramienta ha sido creada pensando en esas aplicaciones que contienen much
 
 PL-Admin te ayuda en la clonación de tu esquema de base de datos principal, compilar código pl/sql en tiempo real, revisar errores de compilacion, revisar diferencias entre la base de datos y tu repositorio entre otras cosas.
 
+PL-Admin te permite versionar tu código PL/SQL de tu base de datos Oracle con Git sin perder las ventajas de programar dentro de la misma base de datos. 
+También funciona perfectamente para hacer despliegues automatizados utilizando GitHub, GitLab o el repositorio de tu preferencia. 
+
+
 ### Setup
 Clone the repo
 ```sh
